@@ -60,8 +60,9 @@ func handleHeaders(w http.ResponseWriter, r *http.Request) {
 	headers := r.Header
 	a, _ := strconv.Atoi(headers.Get("a"))
 	b, _ := strconv.Atoi(headers.Get("b"))
+	sum := a + b
 
-	w.Header().Set("a+b", string(a+b))
+	w.Header().Set("a+b", strconv.Itoa(sum))
 	w.WriteHeader(http.StatusOK)
 }
 
